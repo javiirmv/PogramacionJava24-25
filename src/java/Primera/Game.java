@@ -13,7 +13,7 @@ public class Game {
         int lives = 6;
         int randomNumber = rand.nextInt(101);
 
-        System.out.println("El número aleatorio es: " + randomNumber);
+        System.out.println("El número aleatorio es:" + randomNumber);
         
         while (!finish && lives > 0) {
 
