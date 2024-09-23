@@ -1,14 +1,31 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Resta con divisiones
+
+9/2 = 0
+7/2 = 1
+5/2 = 2
+3/2 = 3
+1/2 = 4
+
+resto 1
+
+
  */
 package Primera;
 
-/**
- *
- * @author Javi
- */
 public class Ejercicio013 {
-    
+
+    public static void main(String arg[]) {
+        int dividendo = 11;
+        int divisor = 3;
+        int aux = 0;
+        int resto = 0;
+        
+        for (int i = dividendo; i >= divisor; i = i - divisor) {
+            aux ++;
+            resto = i - divisor;
+        }
+
+        System.out.println("Cociente: " + aux + " Resto: " + resto);
+    }
 }

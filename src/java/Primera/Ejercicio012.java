@@ -12,6 +12,5 @@ public class Ejercicio012 {
         }
         
         System.out.println(aux);
-
     }
 }
