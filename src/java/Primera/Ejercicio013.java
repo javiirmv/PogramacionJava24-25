@@ -15,16 +15,16 @@ package Primera;
 public class Ejercicio013 {
 
     public static void main(String arg[]) {
-        int dividendo = 11;
+        int dividendo = 3;
         int divisor = 3;
-        int aux = 0;
+        int cociente = 0;
         int resto = 0;
         
         for (int i = dividendo; i >= divisor; i = i - divisor) {
-            aux ++;
+            cociente ++;
             resto = i - divisor;
         }
 
-        System.out.println("Cociente: " + aux + " Resto: " + resto);
+        System.out.println("Cociente: " + cociente + " Resto: " + resto);
     }
 }

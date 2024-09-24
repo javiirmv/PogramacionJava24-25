@@ -3,7 +3,7 @@ package Primera;
 public class Ejercicio012 {
 
     public static void main(String arg[]) {
-        int fact1 = 7;
+        int fact1 = 6;
         int fact2 = 4;
         int aux = 1;
                 
@@ -11,6 +11,7 @@ public class Ejercicio012 {
             aux *= i;
         }
         
-        System.out.println(aux);
+        System.out.printf("Variaciones de %d elementos tomados de %d en %d son %d\n",fact1,fact2,fact2,aux);
+        
     }
 }
