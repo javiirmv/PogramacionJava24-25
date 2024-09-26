@@ -22,7 +22,5 @@ public class Ejercicio020 {
             System.out.println(datos[i]);
 
         }
-
-
     }
 }
