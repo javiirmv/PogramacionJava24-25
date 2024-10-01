@@ -11,10 +11,14 @@ public class Ejercicio024 {
         int datos[] = {10, 20, 30, 40, 50};
         int multiplos[] = {3, 5, 7};
 
+        int[] vector = {};
+        
         for (int i = 0; i < multiplos.length; i++) {
 
             for (int x = 0; x  < datos.length; x++ ) {
                 System.out.print(datos[x] * multiplos[i] + " ");
+                
+                vector.add(datos[x]);
             }
             
             System.out.println("");
