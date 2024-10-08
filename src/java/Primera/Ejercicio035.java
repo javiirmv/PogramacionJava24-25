@@ -61,7 +61,7 @@ public class Ejercicio035 {
         System.out.printf("El peor alumno es: %s con una media de %.2f\n", alumnos[menorPos], vAlumnosNota[menorPos] / asignaturas.length);
 
         System.out.printf("La mejor asignatura es: %s con una media de %.2f\n", asignaturas[mayorAsign], vAsigNota[mayorPos] / alumnos.length);
-        System.out.printf("La mejor peor es: %s con una media de %.2f\n", asignaturas[menorAsign], vAsigNota[menorAsign] / alumnos.length);
+        System.out.printf("La peor es: %s con una media de %.2f\n", asignaturas[menorAsign], vAsigNota[menorAsign] / alumnos.length);
 
     }
 }
