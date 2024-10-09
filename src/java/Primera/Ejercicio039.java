@@ -5,7 +5,7 @@ Mostrar kilos de cada producto que se han vendido
  */
 package Primera;
 
-public class Ejercicio038 {
+public class Ejercicio039 {
 
     public static void main(String arg[]) {
 
