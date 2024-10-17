@@ -8,11 +8,11 @@ import java.util.Random;
 
 public class Buscaminas extends JFrame {
 
-    private final int filas = 10;  // Número de filas del tablero
-    private final int columnas = 10;  // Número de columnas del tablero
-    private final int minas = 15; // Número de minas
-    private JButton[][] botones = new JButton[filas][columnas];  // Matriz de botones
-    private int[][] tablero = new int[filas][columnas]; // Matriz para almacenar las minas y números
+    private final int filas = 10;
+    private final int columnas = 10;
+    private final int minas = 10;
+    private JButton[][] botones = new JButton[filas][columnas];  // Botones
+    private int[][] tablero = new int[filas][columnas]; // Tablero
 
     public Buscaminas() {
         setTitle("Buscaminas Básico");
@@ -21,11 +21,9 @@ public class Buscaminas extends JFrame {
 
         // Configuración del panel que contiene los botones
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(filas, columnas));  // Configuración en forma de cuadrícula
+        panel.setLayout(new GridLayout(filas, columnas));
 
-        // Generar las minas en el tablero
         generarMinas(tablero, minas);
-        // Actualizar el tablero con los números correspondientes
         actualizarMinas(tablero);
 
         // Creación de los botones
@@ -37,10 +35,22 @@ public class Buscaminas extends JFrame {
                 int fila = i;
                 int columna = j;
 
+                botones[fila][columna].setBackground(new Color(250, 250, 250)); // Cambia el fondo del botón a un color RGB personalizado
+
+                int color = (250-(tablero[fila][columna]*25));
+                
+                
+                
                 if (tablero[fila][columna] != 0) {
                     botones[fila][columna].setText(String.valueOf(tablero[fila][columna]));
                     botones[fila][columna].setFont(new Font("Arial", Font.BOLD, 40)); // Cambia "Arial" por la fuente que prefieras
+                    botones[fila][columna].setBackground(new Color(color, color, color)); // Cambia el fondo del botón a un color RGB personalizado
 
+                    if (tablero[fila][columna] == 9) {
+                        botones[fila][columna].setText("X");
+                        botones[fila][columna].setBackground(new Color(250, 106, 20)); // Cambia el fondo del botón a un color RGB personalizado
+
+                    }
                 }
 
                 // Añadir un ActionListener a cada botón para detectar clics
@@ -50,6 +60,8 @@ public class Buscaminas extends JFrame {
                         // Si hay una mina, mostrar "X", si no, mostrar el número
                         if (tablero[fila][columna] == 9) {
                             botones[fila][columna].setText("X");
+                            botones[fila][columna].setBackground(new Color(135, 206, 250)); // Cambia el fondo del botón a un color RGB personalizado
+
                             JOptionPane.showMessageDialog(null, "¡Perdiste! Había una mina.");
                         } else {
                             botones[fila][columna].setText(String.valueOf(tablero[fila][columna]));
@@ -73,7 +85,6 @@ public class Buscaminas extends JFrame {
             int fila = rand.nextInt(map.length);
             int columna = rand.nextInt(map[0].length);
 
-            // Si no hay mina en la posición, colocar una
             if (map[fila][columna] != 9) {
                 map[fila][columna] = 9;
                 minasColocadas++;
