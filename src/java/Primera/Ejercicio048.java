@@ -17,13 +17,13 @@ public class Ejercicio048 {
 
         int[] salariosAcum = new int[6];
 
-        int[] salariosMeses2 = sumarSalarios2(salarios, salariosAcum);
+        sumarSalarios2(salarios, salariosAcum);
 
         for (int i = 0; i < salariosMeses.length; i++) {
             //System.out.println(salariosMeses[i]);
         }
 
-        for (int i = 0; i < salariosMeses2.length; i++) {
+        for (int i = 0; i < salariosAcum.length; i++) {
             System.out.println(salariosMeses[i]);
         }
 
@@ -41,7 +41,7 @@ public class Ejercicio048 {
         return salariosAcum;
     }
 
-    public static int[] sumarSalarios2(int[][] vector, int[] vectorSuma) {
+    public static void sumarSalarios2(int[][] vector, int[] vectorSuma) {
 
         for (int i = 0; i < vector.length; i++) {
             for (int j = 0; j < vector[i].length; j++) {
@@ -49,7 +49,6 @@ public class Ejercicio048 {
             }
         }
 
-        return vectorSuma;
     }
 
 }
