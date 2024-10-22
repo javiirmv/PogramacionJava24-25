@@ -1,6 +1,6 @@
 package Primera;
 
-public class Ejercicio048 {
+public class Ejercicio048_2 {
 
     public static void main(String arg[]) {
 
@@ -15,13 +15,9 @@ public class Ejercicio048 {
 
         int[] salariosMeses = sumarSalarios(salarios);
 
-        int[] salariosAcum = new int[6];
+        int[] salariosAcum = new int[4];
 
         sumarSalarios(salarios, salariosAcum);
-
-        for (int i = 0; i < salariosMeses.length; i++) {
-            //System.out.println(salariosMeses[i]);
-        }
 
         for (int i = 0; i < salariosAcum.length; i++) {
             System.out.println(salariosMeses[i]);
@@ -30,11 +26,11 @@ public class Ejercicio048 {
     }
 
     public static int[] sumarSalarios(int[][] vector) {
-        int[] salariosAcum = new int[6];
+        int[] salariosAcum = new int[4];
 
         for (int i = 0; i < vector.length; i++) {
             for (int j = 0; j < vector[i].length; j++) {
-                salariosAcum[j] += vector[i][j];
+                salariosAcum[i] += vector[i][j];
             }
         }
 
@@ -45,7 +41,7 @@ public class Ejercicio048 {
 
         for (int i = 0; i < vector.length; i++) {
             for (int j = 0; j < vector[i].length; j++) {
-                vectorSuma[j] += vector[i][j];
+                vectorSuma[i] += vector[i][j];
             }
         }
 

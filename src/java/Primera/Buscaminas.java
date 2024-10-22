@@ -10,7 +10,7 @@ public class Buscaminas extends JFrame {
 
     private final int filas = 10;
     private final int columnas = 10;
-    private final int minas = 10;
+    private final int minas = 40;
     private JButton[][] botones = new JButton[filas][columnas];  // Botones
     private int[][] tablero = new int[filas][columnas]; // Tablero
 
