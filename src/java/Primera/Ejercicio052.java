@@ -1,5 +1,8 @@
 package Primera;
 
+// Sumar enteros desde programa principal y 
+
+
 public class Ejercicio052 {
 
     public static void main(String arg[]) {
