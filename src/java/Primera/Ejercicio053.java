@@ -13,18 +13,22 @@ public class Ejercicio053 {
 
         String empleados[] = {"Javier Marías", "Antonio Muñoz", "Palazon", "Mario"};
 
+        int multiplicador = 4;
+        
         for (int i = 0; i < salarios.length; i++) {
-            sumarMes(salarios[i], empleados[i]);
+            int sumaSalario = sumarMes(salarios[i]);
+            System.out.printf("%s ha ganado %d en total\n", empleados[i], sumaSalario);
+
         }
 
     }
 
-    public static void sumarMes(int salario[], String empleado) {
+    public static int sumarMes(int salario[]) {
         int acum = 0;
         for (int i = 0; i < salario.length; i++) {
             acum += salario[i];
         }
-        System.out.printf("%s ha ganado %d en total\n",empleado, acum);
+        return acum;
     }
 
 }
