@@ -16,6 +16,8 @@ public class Ejercicio055 {
             {0, 0, 0, 0, 0, 0, 0},};
 
         multiplicar(precios, kilos, dinero);
+        
+        
         int dinero2[][] = multiplicar(precios, kilos);
 
         for (int i = 0; i < dinero.length; i++) {
