@@ -14,8 +14,6 @@ public class Ejercicio061 {
     }
 
     public static void cambiar(char[] frase, char sustituir, char sustituto) {
-
-
         for (int i = 0; i < frase.length; i++) {
             if (frase[i] == sustituir){
                 frase[i] = sustituto;
