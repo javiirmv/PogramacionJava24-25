@@ -14,9 +14,9 @@ public class Ejercicio070 {
 
         
         for (int x = i, j= 0; j < frase1.length; x++, j++) {
-            
             frase2[x] = frase1[frase1.length - 1 - j];
         }
+        
         System.out.println(frase2);
 
     }
