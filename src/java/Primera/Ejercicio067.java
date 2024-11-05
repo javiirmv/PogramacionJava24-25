@@ -18,7 +18,7 @@ public class Ejercicio067 {
 
                 }
                 
-                desDerecha(cont, frase, i);
+                desIzquierda(cont, frase, i);
 
             }
 
@@ -41,10 +41,12 @@ public class Ejercicio067 {
     
     private static void desIzquierda(int cont, char[] frase, int i) {
         for (int j = 1; j < cont; j++) {
-            for (int x = 0; x < cont-1; x++) {
-                char aux = frase[i - x + 1];
-                frase[i - x + 1] = frase[i - x];
-                frase[i - x] = aux;
+            System.out.println(frase[i-1]);
+            for (int x = 1; x < cont; x++) {
+                char aux = frase[i-x];
+                frase[i-x] = frase[i-x-1];
+                frase[i-x-1] = aux;
+
             }
         }
     }
