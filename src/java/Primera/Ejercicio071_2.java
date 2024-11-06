@@ -1,6 +1,6 @@
 package Primera;
 
-public class Ejercicio071 {
+public class Ejercicio071_2 {
 
     public static void main(String arg[]) {
         char frase1[] = {'e', 'n', ' ', 'u', 'n', ' ', 'l', 'u', 'g', 'a', 'r', ' ', 'd', 'e', ' ', 'l', 'a', ' ', 'M', 'a', 'n', 'c', 'h', 'a'};
@@ -21,6 +21,7 @@ public class Ejercicio071 {
                     cadena2[j++] = subcad2[x];
                 }
                 j--;
+                i+=subcad1.length-1;
             } else {
                 cadena2[j] = frase1[i];
             }
