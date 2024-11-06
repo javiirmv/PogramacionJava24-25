@@ -20,7 +20,7 @@ public class Ejercicio074 {
             globalCount += cont;
 
             if (cont >= sustituir.length - 1) {
-                for (int x = i; x < frase.length - (cont + 1); x++) {
+                for (int x = i; x < frase.length - (cont+1); x++){
                     frase[x] = frase[x+cont+1];
                 }
             }
