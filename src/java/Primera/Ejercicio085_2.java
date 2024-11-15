@@ -12,8 +12,6 @@ public class Ejercicio085_2 {
         int posicion2 = 0;
 
         while (posicion1 != -1 || posicion2 != -1) {
-
-
             if (fraseIndex == 1 && posicion1 != -1) {
                 if (frase1.indexOf(' ', posicion1 + 1) != -1) {
                     String inicio = frase1.substring(posicion1, frase1.indexOf(' ', posicion1 + 1));
