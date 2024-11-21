@@ -7,7 +7,7 @@ public class Ejercicio086 {
         String frase2 = "";
 
         for (int i = frase1.length() - 1; i >= 0; i--) {
-            frase2 = frase2.concat(frase1.charAt(i)); 
+            frase2 = frase2.concat(Character.toString(frase1.charAt(i))); 
         }
 
         System.out.println(frase2);
