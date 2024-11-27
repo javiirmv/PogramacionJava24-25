@@ -22,16 +22,13 @@ public class EX3_2 {
     }
 
     public static void toText(int number, String[][] text, int cont) {
-        if (number < 10) {
-            System.out.print(text[cont][number % 10]+ " ");
-        } else {
-            cont++;
-            toText(number / 10, text, cont);
-            System.out.print(text[cont - 1][number % 10]+ " ");
+        if (number > 0) {
+            toText(number / 10, text, cont+1);
+            System.out.print(text[cont][number % 10] + " ");
 
         }
-
     }
-}
+
+
 
 }

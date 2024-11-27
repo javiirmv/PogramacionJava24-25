@@ -26,7 +26,6 @@ public class EX4 {
                             mayus = true;
                         }
                     }
-
                     inicio++;
                 }
                 if (mayus) {
