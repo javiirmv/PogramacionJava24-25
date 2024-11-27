@@ -5,19 +5,13 @@ public class Ejercicio096 {
     public static void main(String[] args) {
         int num = 10;
 
-        int resultado = calcular(num);
+        calcular(num);
     }
 
-    public static int calcular(int num) {
-
-        if (num < 2) {
-        System.out.print(num % 2);
-            return num;
-        } else {
-            calcular((num / 2));
+    public static void calcular(int num) {
+        if (num > 0) {
+            calcular(num/2);
+            System.out.print(num % 2);
         }
-        System.out.print(num % 2);
-
-        return num;
     }
 }
