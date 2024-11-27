@@ -1,6 +1,6 @@
 package Primera;
 
-public class Ejercicio067 {
+public class AA_DesplazarLetra {
 
     public static void main(String arg[]) {
         char frase[] = {'E', 'n', ' ', 'u', 'n', ' ', 'l', 'u', 'g', 'a', 'r', ' ', 'd', 'e', ' ', 'l', 'a', ' ', 'M', 'a', 'n', 'c', 'h', 'a', ' '};

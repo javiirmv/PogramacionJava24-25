@@ -1,6 +1,6 @@
 package Primera;
 
-public class Ejercicio080 {
+public class AA_ContarStrings {
 
     public static void main(String arg[]) {
         String frase = "En un lugar de la Mancha Mancha, de cuyo nombre no quiero acordarme";
