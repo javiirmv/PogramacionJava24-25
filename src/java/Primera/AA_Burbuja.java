@@ -5,7 +5,7 @@ Mostrar kilos de cada producto que se han vendido
  */
 package Primera;
 
-public class Burbuja {
+public class AA_Burbuja {
 
     public static void main(String arg[]) {
 

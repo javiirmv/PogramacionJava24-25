@@ -1,14 +1,13 @@
 package Primera;
 
-public class Ejercicio051 {
+public class AA_Factorizar {
 
     public static void main(String arg[]) {
 
-
         int fact1 = 5;
-        int fact2 = 2;
-        
-        int factoriar = factorizar(fact1)/((factorizar(fact1-fact2))*factorizar(fact2));
+
+       
+        int factoriar = factorizar(fact1);
 
         System.out.println(factoriar);
     }

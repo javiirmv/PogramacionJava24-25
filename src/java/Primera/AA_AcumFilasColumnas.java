@@ -6,7 +6,7 @@ Acumular por filas y por columnas
  */
 package Primera;
 
-public class Ejercicio029 {
+public class AA_AcumFilasColumnas {
 
     public static void main(String arg[]) {
 
