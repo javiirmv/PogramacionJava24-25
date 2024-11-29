@@ -15,19 +15,22 @@ public class EX3 {
             "Ciencuenta y", "Sesenta y", "Setenta y", "Ochenta y", "Noventa y"};
         String[] escrito3 = {"", "Ciento", "Doscientos", "Trescientos", "Cuatrocientos",
             "Quinientos", "Seiscientos", "Setecientos", "Ochocientos", "Novecientos"};
-        int numero = 1;
+        int numero = 198;
 
         for (int i = 2; i >= 0; i--) {
             int numeroPotenciado = (int) Math.pow(10, i);
-            int numeroTexto = ((numero/numeroPotenciado)%10);
+            int numeroTexto = ((numero / numeroPotenciado) % 10);
 
-            if (i == 2) {
-                System.out.print(escrito3[numeroTexto] + " ");
-            } else if (i == 1) {
-                System.out.print(escrito2[numeroTexto] + " ");
-            } else {
-                System.out.print(escrito1[numeroTexto] + " ");
+            if (numeroTexto != 0) {
+                if (i == 2) {
+                    System.out.print(escrito3[numeroTexto] + " ");
+                } else if (i == 1) {
+                    System.out.print(escrito2[numeroTexto] + " ");
+                } else {
+                    System.out.print(escrito1[numeroTexto] + " ");
+                }
             }
+
         }
 
     }

@@ -1,8 +1,4 @@
-/*
- Mostrar por pantalla, cuántos alumnos suspendieron por cada asignatura.
- Realizar la media de las notas menores a 5. 
- Mostrar por pantalla, los nombres de los alumnos que obtuvieron una media superior a 5.
- */
+
 package Primera;
 
 public class EX4_2 {

@@ -4,7 +4,7 @@ package Primera;
 public class EX1 {
 
     public static void main(String[] args) {
-        int number = 1;
+        int number = 2;
 
         System.out.println(esPrimo(number));
     }
