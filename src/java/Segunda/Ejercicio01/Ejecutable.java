@@ -8,7 +8,8 @@ public class Ejecutable {
         casa1 = new Casa("Calle Quevedo nº 52", 1000, "Ladrillo", 33);
         casa2 = new Casa("Calle de la Armargura Mayor nº 69", 1000, "Chocolate");
 
-        System.out.println(casa1.getDireccion());
+        
+        casa2.mostrar();
         
     }
 }
