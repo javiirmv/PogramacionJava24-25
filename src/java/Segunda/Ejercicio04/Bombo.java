@@ -1,36 +1,29 @@
 package Segunda.Ejercicio04;
 
+import java.util.Random;
+
 public class Bombo {
 
     int bolas[];
-    int sacadas = 0;
-    int tabla[][] = new int[6][8];
+    Random aleatorio;
+    int numBolas = 48;
+    int x = 0;
 
-    public void mostrar() {
-        for (int i = 0; i < bolas.length-1; i++) {
-            int randomNum = (int) (Math.random() * (bolas.length - sacadas - 1) + 1);
-            int num = bolas[randomNum];
-
-            bolas[randomNum] = bolas[bolas.length - sacadas - 1];
-
-            int fila = sacadas / 6;
-            int columna = sacadas % 8;
-
-            tabla[fila][columna] = num;
-            
-            System.out.println(tabla[fila][columna]);
-            sacadas++;
-
+    public Bombo() {
+        bolas = new int[numBolas];
+        for (int i = 0; i < numBolas; i++) {
+            bolas[i] = i + 1;
         }
-
+        aleatorio = new Random();
     }
 
-    public Bombo(int numBolas) {
-        this.bolas = new int[numBolas];
+    public int sacaBola() {
+        int numAleatorio = aleatorio.nextInt(numBolas);
+        int bola = bolas[numAleatorio];
 
-        for (int i = 0; i < numBolas; i++) {
-            this.bolas[i] = i;
-        }
+        bolas[numAleatorio] = bolas[numBolas - 1];
+        numBolas--;
+        return bola;
     }
 
 }
