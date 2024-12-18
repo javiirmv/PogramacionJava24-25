@@ -3,16 +3,22 @@ package Segunda.Ejercicio05;
 import java.awt.Button;
 import java.awt.Event;
 import java.awt.Frame;
+import java.awt.Graphics;
 import java.awt.Panel;
 
 public class OvalApp extends Frame {
 
+    Ovalo ovalo;
+
     public static void main(String[] args) {
         OvalApp app = new OvalApp();
+
     }
 
     public OvalApp() {
         super("Dibujando óvalos");
+
+        ovalo = new Ovalo();
 
         this.show();
         this.pack();
@@ -29,6 +35,10 @@ public class OvalApp extends Frame {
         this.add("South", panel);
     }
 
+    public void paint(Graphics g) {
+        ovalo.dibujar(g);
+    }
+
     public boolean handleEvent(Event ev) {
         if (ev.id == Event.WINDOW_DESTROY) {
             System.exit(0);
@@ -37,6 +47,10 @@ public class OvalApp extends Frame {
             if (ev.target instanceof Button) {
                 if (ev.arg == "Salir") {
                     System.exit(0);
+                    return true;
+                } else if (ev.arg == "Siguiente") {
+                    ovalo = new Ovalo();
+                    repaint();
                     return true;
                 }
             }
