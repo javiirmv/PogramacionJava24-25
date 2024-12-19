@@ -14,12 +14,16 @@ public class FrameApp extends Frame {
 
     MenuBar porDefecto, alternativo;
 
+    String tituloInicial;
+
     public static void main(String[] args) {
         FrameApp app = new FrameApp();
     }
 
     public FrameApp() {
         super("Trabajando con Frames");
+
+        tituloInicial = this.getTitle();
 
         setUp();
         setUpMenu();
@@ -68,13 +72,32 @@ public class FrameApp extends Frame {
         archivoMenu.add(new MenuItem("Salir"));
         alternativo.add(archivoMenu);
 
-        this.setMenuBar(alternativo);
+        this.setMenuBar(porDefecto);
     }
 
     public boolean handleEvent(Event ev) {
         if (ev.id == Event.WINDOW_DESTROY) {
             System.exit(0);
             return true;
+        } else if (ev.id == Event.ACTION_EVENT) {
+            if (ev.target instanceof Button) {
+                if (ev.arg == "Título") {
+                    if (this.getTitle() == tituloInicial) {
+                        this.setTitle("Pulsado");
+                    } else {
+                        this.setTitle(tituloInicial);
+                    }
+                    return true;
+                } else if (ev.arg == "MenuBar") {
+                    if (this.getMenuBar() == porDefecto) {
+                        this.setMenuBar(alternativo);
+                    } else {
+                        this.setMenuBar(porDefecto);
+
+                    }
+
+                }
+            }
         }
 
         return false;
