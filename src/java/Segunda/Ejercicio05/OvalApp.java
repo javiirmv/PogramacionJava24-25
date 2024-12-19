@@ -49,7 +49,7 @@ public class OvalApp extends Frame {
                     System.exit(0);
                     return true;
                 } else if (ev.arg == "Siguiente") {
-                    ovalo = new Ovalo();
+                    ovalo.inicializar();
                     repaint();
                     return true;
                 }

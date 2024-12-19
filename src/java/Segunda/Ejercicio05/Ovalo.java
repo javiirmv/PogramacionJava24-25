@@ -17,16 +17,17 @@ public class Ovalo {
     Random r;
 
     public Ovalo() {
-
         r = new Random();
+        inicializar();
+    }
 
+    public void inicializar() {
         this.posX = r.nextInt(600);
         this.posY = r.nextInt(600);
-        this.anchura = r.nextInt(400)+100;
-        this.altura = r.nextInt(400)+100;
+        this.anchura = r.nextInt(400) + 100;
+        this.altura = r.nextInt(400) + 100;
 
         this.color = new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256));
-
     }
 
     public void dibujar(Graphics g) {
