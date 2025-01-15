@@ -69,7 +69,8 @@ public class Objetos extends Frame {
         paneles[1][2].add(new MiCanvas());
 
         String alimentos[] = {"Patatas", "Cebollas", "Tomates", "Lechuga"};
-        
+        paneles[2][0].add(new MiCheckBoxGroup(alimentos));
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 principal.add(paneles[i][j]);
@@ -177,8 +178,10 @@ class MiLista extends List {
 }
 
 class MiCanvas extends Canvas {
+
     int posx = 20;
     int posy = posx;
+
     public MiCanvas() {
         super();
         this.setSize(150, 150);
@@ -190,32 +193,49 @@ class MiCanvas extends Canvas {
     public void paint(Graphics g) {
         g.fillRect(posx, posy, 30, 30);
         g.setColor(Color.red);
-        
+
     }
-    
-    public boolean mouseDown(Event ev, int x, int y){
+
+    public boolean mouseDown(Event ev, int x, int y) {
         posx = x;
         posy = y;
-        
+
         repaint();
-                
+
         return false;
     }
 
 }
 
-class MiCheckBoxGroup extends Panel{
+class MiCheckBoxGroup extends Panel {
+
     Checkbox checkBoxes[];
     TextField resultado;
 
     public MiCheckBoxGroup(String[] elementos) {
         super();
-        this.setLayout(new GridLayout(elementos.length +1, 1));
+        this.setLayout(new GridLayout(elementos.length + 1, 1));
         checkBoxes = new Checkbox[elementos.length];
-        
-        for (int i=0; i<elementos.length; i++){
+
+        for (int i = 0; i < elementos.length; i++) {
             checkBoxes[i] = new Checkbox(elementos[i]);
+            this.add(checkBoxes[i]);
         }
+
+        resultado = new TextField("", 15);
+        this.add(resultado);
+
     }
-    
+
+    public boolean action(Event ev, Object obj) {
+        resultado.setText(" ");
+        for (int i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].getState() == true) {
+                resultado.setText(resultado.getText().concat(checkBoxes[i].getLabel()));
+            }
+        }
+
+        return true;
+    }
+
 }
