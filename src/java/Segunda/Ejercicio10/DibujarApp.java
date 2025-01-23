@@ -9,6 +9,8 @@ import java.awt.MenuItem;
 
 public class DibujarApp extends Frame {
 
+    MiCanvas canvas;
+
     public static void main(String[] args) {
         DibujarApp app = new DibujarApp();
     }
@@ -24,11 +26,10 @@ public class DibujarApp extends Frame {
 
     }
 
-
     public void setUp() {
         setupMenuBar();
-
-        DosPuntos prueba = new DosPuntos(10, 10, 20, 20, 1);
+        canvas = new MiCanvas(DosPuntos.RECTANGULO);
+        this.add("Center", canvas);
     }
 
     private void setupMenuBar() {
@@ -57,6 +58,19 @@ public class DibujarApp extends Frame {
             if (ev.target instanceof MenuItem) {
                 if (ev.arg == "Salir") {
                     System.exit(0);
+                    return true;
+                } else if (ev.arg == "Línea") {
+                    canvas.setTipo(DosPuntos.LINEA);
+                    return true;
+                } else if (ev.arg == "Óvalo") {
+                    canvas.setTipo(DosPuntos.OVALO);
+                    return true;
+                } else if (ev.arg == "Rectángulo") {
+                    canvas.setTipo(DosPuntos.RECTANGULO);
+                    return true;
+                } else if (ev.arg == "Nuevo") {
+                    canvas.getLista().clear();
+                    canvas.repaint();
                     return true;
                 }
             }

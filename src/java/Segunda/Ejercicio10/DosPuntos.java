@@ -26,11 +26,11 @@ public class DosPuntos {
         this(0, 0, LINEA);
     }
 
-    public void Dibujar(Graphics g) {
+    public void dibujar(Graphics g) {
 
         int anchura, altura;
-        anchura = Math.abs(finX - inicioX);
-        altura = Math.abs(finY - inicioX);
+        anchura = Math.abs(inicioX - finX);
+        altura = Math.abs(inicioY - finY);
 
         switch (tipo) {
             case LINEA:
