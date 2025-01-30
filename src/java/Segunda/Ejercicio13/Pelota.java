@@ -9,30 +9,44 @@ public class Pelota extends Rectangle {
     int velX, velY;
     Color color;
 
-   Color colores[] = {Color.RED, Color.YELLOW, Color.MAGENTA, Color.BLUE, Color.ORANGE};
+    Color colores[] = {Color.RED, Color.YELLOW, Color.MAGENTA, Color.BLUE, Color.ORANGE};
+
+    int radio;
     
     public Pelota() {
         super((int) (Math.random() * 250), (int) (Math.random() * 250), 0, 0);
 
-        int radio = (int) ((Math.random() * 30) + 20);
+        radio = (int) ((Math.random() * 30) + 20);
 
-        this.height = this.width = radio;
+        //this.height = this.width = radio;
+        this.setSize(radio, radio);
 
-        int velX = (int) ((Math.random() * 11) - 5);
-        int velY = (int) ((Math.random() * 11) - 5);
+        velX = (int) ((Math.random() * 11) - 5);
+        velY = (int) ((Math.random() * 11) - 5);
 
-        Color color = colores[(int) (Math.random() * colores.length)];
-        
-    }   
+        color = colores[(int) (Math.random() * colores.length)];
 
-    
-    public void paint(Graphics g){
+    }
+
+    public void paint(Graphics g) {
+        g.setColor(color);
         g.fillOval(x, y, width, height);
-    
+
     }
-    
-    public void actualizar(){
-    
+
+    public void update() {
+        if (x <= 0 || x >= (300-this.radio)) {
+            velX = -velX;
+        }
+
+        if (y <= 0 || y >= (300-this.radio)) {
+            velY =- velY;
+        }
+        
+        x+=velX;
+        y+=velY;
     }
+
+    
     
 }

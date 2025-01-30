@@ -10,7 +10,7 @@ import java.util.List;
 public class MiCanvas extends Canvas {
 
     private List<DosPuntos> lista;
-    
+
     DosPuntos actual;
     private int tipo;
 
@@ -22,8 +22,6 @@ public class MiCanvas extends Canvas {
         this.lista = lista;
     }
 
-
-    
     public MiCanvas(int tipo) {
         super();
         this.tipo = tipo;
@@ -40,7 +38,7 @@ public class MiCanvas extends Canvas {
 
     public void paint(Graphics g) {
         if (actual != null) {
-            for (int i = 0; i < lista.size() ; i++){
+            for (int i = 0; i < lista.size(); i++) {
                 lista.get(i).dibujar(g);
             }
             actual.dibujar(g);
@@ -58,8 +56,8 @@ public class MiCanvas extends Canvas {
         repaint();
         return true;
     }
-    
-    public boolean mouseUp(Event ev, int x, int y){
+
+    public boolean mouseUp(Event ev, int x, int y) {
         lista.add(actual);
         actual = null;
         return true;
