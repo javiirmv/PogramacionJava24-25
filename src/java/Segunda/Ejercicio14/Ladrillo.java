@@ -1,10 +1,9 @@
-
 package Segunda.Ejercicio14;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-
+import java.awt.event.KeyEvent;
 
 public class Ladrillo extends Rectangle {
 
@@ -16,9 +15,10 @@ public class Ladrillo extends Rectangle {
     public Ladrillo(int x, int y, Color color) {
         super(x, y, ANCHURA, ALTURA);
         this.color = color;
-        
-        
+
     }
+
+
 
     public void paint(Graphics g) {
         g.setColor(this.color);
