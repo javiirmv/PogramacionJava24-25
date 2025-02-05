@@ -77,18 +77,8 @@ public class Arkanoid extends Applet implements Runnable {
     public void run() {
         do {
 
-            if (raqueta.intersects(pelota)) {
-                pelota.updateDirection(false, true);
-            }
 
-            for (int i = 0; i < ladrillos.size(); i++) {
-                if (ladrillos.get(i).intersects(pelota)) {
-                    pelota.updateDirection(false, true);
-                    ladrillos.remove(ladrillos.get(i));
-                }
-            }
-
-            pelota.update();
+            pelota.update(raqueta, ladrillos);
             repaint();
 
             try {

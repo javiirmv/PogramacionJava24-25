@@ -3,6 +3,7 @@ package Segunda.Ejercicio14;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.List;
 
 public class Pelota extends Rectangle {
 
@@ -18,7 +19,19 @@ public class Pelota extends Rectangle {
         g.fillOval(x, y, width, height);
     }
 
-    public void update() {
+    public void update(Raqueta raqueta, List<Ladrillo> ladrillos) {
+
+        if (this.intersects(raqueta)){
+            velY = -velY;
+        }
+
+        for (int i = 0; i < ladrillos.size(); i++) {
+            if (this.intersects(ladrillos.get(i))) {
+                ladrillos.remove(i);
+                velY = -velY;
+            }
+        }
+
         if (x <= 0 || x >= (300 - this.width)) {
             velX = -velX;
         }
