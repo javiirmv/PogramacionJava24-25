@@ -6,52 +6,50 @@ import java.awt.Rectangle;
 import java.util.List;
 
 public class Pelota extends Rectangle {
+    //Aqui no ponemos los final porque es solo un objeto no los necesitamos
 
-    int velX = 5;
-    int velY = 5;
+    int velX, velY;
 
-    public Pelota() {
-        super(145, 265, 9, 9);
+    public Pelota() { //se le podria pasar la raqueta que ya está siendo controlada en el Applet
+        super(136, 230, 13, 13);
+        this.velX = 5;
+        this.velY = 5;
+       
+
     }
 
     public void paint(Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(Color.CYAN);
         g.fillOval(x, y, width, height);
     }
 
-    public void update(Raqueta raqueta, List<Ladrillo> ladrillos) {
+    public boolean update(Raqueta raqueta, List<Ladrillo> ladrillos) {
+        this.x += velX;
+        this.y += velY;
 
-        if (this.intersects(raqueta)){
+        if (this.x <= 0 || this.x + width >= 300) {
+            velX = -velX;
+        }
+
+        if (this.y <= 0) {
+            velY = -velY;
+        }
+        
+        if(this.y >=300-height)
+            return false; // cuando se ejecuta un return se acaba la funcion;
+
+        if (this.intersects(raqueta)) //objeto de la clase pelota a traves de la cual llamo al metodo upadte.
+        {
             velY = -velY;
         }
 
-        for (int i = 0; i < ladrillos.size(); i++) {
-            if (this.intersects(ladrillos.get(i))) {
-                ladrillos.remove(i);
+        for (Ladrillo ladrillo:ladrillos)
+            if (this.intersects(ladrillo)) {
+                ladrillos.remove(ladrillo); // se le puede pasar el int o el objeto a leiminat; 
                 velY = -velY;
+                break;
             }
-        }
-
-        if (x <= 0 || x >= (300 - this.width)) {
-            velX = -velX;
-        }
-
-        if (y <= 0 || y >= (300 - this.height)) {
-            velY = -velY;
-        }
-
-        x += velX;
-        y += velY;
-    }
-
-    public void updateDirection(boolean xUpdate, boolean yUpdate) {
-        if (xUpdate) {
-            velX = -velX;
-        }
-
-        if (yUpdate) {
-            velY = -velY;
-        }
+        return true;
     }
 
 }
