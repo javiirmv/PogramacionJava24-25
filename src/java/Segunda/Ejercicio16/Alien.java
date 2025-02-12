@@ -1,0 +1,41 @@
+package Segunda.Ejercicio16;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+public class Alien extends Rectangle {
+
+    Color color;
+
+    int velY = 3;
+    
+    public static final int ANCHURA = 28;
+    public static final int ALTURA = 10;
+
+    public Alien() {
+        super(0, 20, ANCHURA, ALTURA);
+        int xRandom = (int) ((Math.random() * 270) + 30);
+        this.x = xRandom;
+        this.color = Color.cyan;
+    }
+
+    public void paint(Graphics g) {
+        g.setColor(this.color);
+        g.fillRect(x, y, width, height);
+    }
+
+    public boolean detectar(Bullet bullet) {
+        return this.intersects(bullet);
+
+    }
+
+    public boolean update() {
+        this.setLocation(x, y + velY);
+
+        if (this.y > 330) {
+            return true;
+        }
+        return false;
+    }
+}

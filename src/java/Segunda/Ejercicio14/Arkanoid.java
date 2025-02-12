@@ -14,7 +14,6 @@ public class Arkanoid extends Applet implements Runnable {
 
     public static final int FILAS = 5;
     public static final int COLUMNAS = 10;
-    //otra forma para mover la raqueta;
     public static final int DERECHA = 0;
     public static final int IZQUIERDA = 1;
     boolean continua=true;

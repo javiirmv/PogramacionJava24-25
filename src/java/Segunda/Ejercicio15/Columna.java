@@ -23,8 +23,9 @@ public class Columna {
     }
 
     public boolean update() {
-        top.x = top.x - 10;
-        bottom.x = bottom.x - 10;
+        top.x = top.x - 7;
+        bottom.x = bottom.x - 7;
+
 
         return true;
     }
