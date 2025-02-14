@@ -61,6 +61,12 @@ public class Principal extends Applet implements Runnable {
 
         g.drawImage(imagen, 0, 0, this);
     }
+    
+    public boolean mouseMove(Event ev, int x, int y){
+        gun.actualizar(x);
+        
+        return true;
+    }
 
     public boolean keyDown(Event ev, int tecla) {
         if (tecla == 1006) {
@@ -103,7 +109,7 @@ public class Principal extends Applet implements Runnable {
                 if (alien.update()) {
                     aliens.remove(alien);
                     continua = false;
-                    break;
+                     break;
                 }
             }
 
@@ -116,7 +122,7 @@ public class Principal extends Applet implements Runnable {
             repaint();
 
             try {
-                Thread.sleep(30);
+                Thread.sleep(50);
             } catch (InterruptedException ex) {
             }
 

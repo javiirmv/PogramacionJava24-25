@@ -15,7 +15,7 @@ public class Alien extends Rectangle {
 
     public Alien() {
         super(0, 20, ANCHURA, ALTURA);
-        int xRandom = (int) ((Math.random() * 270) + 30);
+        int xRandom = (int) ((Math.random() * 240) + 30);
         this.x = xRandom;
         this.color = Color.cyan;
     }

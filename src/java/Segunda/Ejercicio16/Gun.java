@@ -25,4 +25,8 @@ public class Gun extends Rectangle {
         }
     }
 
+    public void actualizar(int posX) {
+        this.x = posX - this.width / 2;
+    }
+
 }
