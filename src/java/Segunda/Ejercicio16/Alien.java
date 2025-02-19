@@ -9,6 +9,7 @@ public class Alien extends Rectangle {
     Color color;
 
     int velY = 3;
+    int velX;
     
     public static final int ANCHURA = 28;
     public static final int ALTURA = 10;
@@ -18,6 +19,7 @@ public class Alien extends Rectangle {
         int xRandom = (int) ((Math.random() * 240) + 30);
         this.x = xRandom;
         this.color = Color.cyan;
+        this.velX = (int) ((Math.random() * 30) -10);
     }
 
     public void paint(Graphics g) {
@@ -31,11 +33,17 @@ public class Alien extends Rectangle {
     }
 
     public boolean update() {
-        this.setLocation(x, y + velY);
+        this.setLocation(x + velX, y + velY);
 
+        
         if (this.y > 330) {
             return true;
         }
+        
+        if (this.x <= 0 || this.x >= 300 - ANCHURA){
+            velX *= -1;
+        }
+        
         return false;
     }
 }
