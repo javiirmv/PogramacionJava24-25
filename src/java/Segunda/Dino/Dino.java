@@ -49,7 +49,7 @@ public class Dino extends Rectangle {
                     this.y -= (60 - (i * 3));
 
                     try {
-                        Thread.sleep(20); // Pequeña pausa para simular la animación
+                        Thread.sleep(20); 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
