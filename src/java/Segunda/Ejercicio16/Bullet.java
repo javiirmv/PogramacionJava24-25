@@ -7,13 +7,15 @@ import java.awt.Rectangle;
 public class Bullet extends Rectangle {
 
     int velY = 10;
-
-    public Bullet(int posX) {
+    Color color;
+    
+    public Bullet(int posX, Color color) {
         super(posX, 250, 10, 20);
+        this.color = color,
     }
 
     public void paint(Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(color);
         g.fillRect(x, y, width, height);
     }
 

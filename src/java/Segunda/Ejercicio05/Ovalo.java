@@ -13,9 +13,9 @@ public class Ovalo {
 
     int posX, posY, anchura, altura;
     Color color;
-
     Random r;
-
+    int cont = 0;
+    
     public Ovalo() {
         r = new Random();
         inicializar();

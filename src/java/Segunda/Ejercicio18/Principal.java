@@ -3,11 +3,13 @@ package Segunda.Ejercicio18;
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Principal extends Applet implements Runnable {
 
@@ -20,6 +22,8 @@ public class Principal extends Applet implements Runnable {
 
     Rectangle carretera;
 
+    int speed = 30;
+    int timerCar = 1500;
     int cont = 0;
 
     public void init() {
@@ -44,17 +48,23 @@ public class Principal extends Applet implements Runnable {
         noseve.setColor(Color.BLACK);
         noseve.fillRect(0, 0, 1000, 1500);
 
-        rana.paint(noseve);
+        noseve.setColor(Color.GRAY);
 
-        
+        noseve.fillRect(0, 500, 1000, 400);
 
         if (!continua) {
-            noseve.drawString("GAME OVER", 120, 140);
+            noseve.setColor(Color.WHITE);
+            noseve.setFont(new Font("Arial", Font.BOLD, 50));
+            noseve.drawString("GAME OVER", 325, 450);
+
         }
 
         for (Coche coche : coches) {
             coche.paint(noseve);
         }
+
+        rana.paint(noseve);
+
         g.drawImage(imagen, 0, 0, this);
     }
 
@@ -63,8 +73,8 @@ public class Principal extends Applet implements Runnable {
     }
 
     public boolean keyDown(Event ev, int tecla) {
-
-        return true;
+        rana.setY(tecla);
+        return false;
     }
 
     public void run() {
@@ -74,16 +84,32 @@ public class Principal extends Applet implements Runnable {
                 animacion.stop();
             }
 
-            if (cont >= 10) {
-                //aliens.add(new Alien());
-                cont = 0;
+            for (Coche coche : coches) {
+                if (coche.update()) {
+                    coches.remove(coche);
+                    break;
+                }
+                
+                if (coche.intersects(rana)){
+                    continua = false;
+                }
             }
-            cont++;
+            
+            
+
+            if (cont > timerCar) {
+                coches.add(new Coche(new Random().nextBoolean()));
+                cont = 0;
+                timerCar = (((int) Math.random()) * 1000) + 500;
+
+            } else {
+                cont += speed;
+            }
 
             repaint();
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(speed);
             } catch (InterruptedException ex) {
             }
 

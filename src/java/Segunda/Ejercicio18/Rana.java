@@ -6,14 +6,19 @@ import java.awt.Rectangle;
 
 public class Rana extends Rectangle {
 
+    int velY = 30;
+    
     public Rana() {
-
-        super(30, 30, 30, 30);
+        super(500-50, 1500-100, 100, 100);
     }
 
     public void paint(Graphics g) {
-        g.setColor(Color.GRAY);
+        g.setColor(Color.GREEN);
         g.fillRect(x, y, width, height);
+    }
+    
+    public void setY(int key){
+        this.y -= velY;
     }
 
 }
