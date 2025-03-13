@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,14 +14,14 @@ public class Puzzle extends Applet {
     public static final int PIEZAS = 25;
     public static final int FILAS = 5;
 
-    Image imagenes[];
-
     Thread animacion;
     Image imagen;
     Graphics noseve;
-    Pieza piezas[];
 
+    Image imagenes[];
+    Pieza piezas[];
     Pieza seleccionada;
+    Rectangle tablero[][];
 
     public void init() {
         imagen = this.createImage(700, 500);
@@ -28,9 +29,16 @@ public class Puzzle extends Applet {
 
         imagenes = new Image[PIEZAS];
         piezas = new Pieza[PIEZAS];
+        tablero = new Rectangle[FILAS][FILAS];
         for (int i = 0; i < PIEZAS; i++) {
             imagenes[i] = getImage(getCodeBase(), "Tercera/directorioImagenes/" + (i + 1) + ".png");
             piezas[i] = new Pieza(imagenes[i], i);
+        }
+
+        for (int i = 0; i < FILAS; i++) {
+            for (int j = 0; j < FILAS; j++) {
+                tablero[i][j] = new Rectangle((j * 60) + 15, (i * 60) + 15, 60, 60);
+            }
         }
 
         this.setSize(700, 500);
@@ -39,17 +47,28 @@ public class Puzzle extends Applet {
 
     public boolean mouseDown(Event ev, int x, int y) {
         for (Pieza pieza : piezas) {
-            if (pieza.contains(x, y)) {
+            if (pieza.contains(x, y) && !pieza.isColocada()) {
                 seleccionada = pieza;
-                System.out.println(seleccionada);
                 break;
             }
         }
+
         return true;
     }
 
     public boolean mouseUp(Event ev, int x, int y) {
-        seleccionada = null;
+        if (seleccionada != null) {
+            int piezaI = seleccionada.posicion / 5;
+            int piezaJ = seleccionada.posicion % 5;
+
+            if (tablero[piezaI][piezaJ].contains(x, y)) {
+                seleccionada.setTablero(tablero[piezaI][piezaJ].x, tablero[piezaI][piezaJ].y);
+                seleccionada.setColocada(true);
+            }
+
+            seleccionada = null;
+            repaint();
+        }
         return true;
     }
 
@@ -69,10 +88,17 @@ public class Puzzle extends Applet {
     public void paint(Graphics g) {
         noseve.setColor(Color.BLACK);
         noseve.fillRect(0, 0, 700, 500);
+
+        noseve.setColor(Color.GRAY);
+
+        for (int i = 0; i < FILAS; i++) {
+            for (int j = 0; j < FILAS; j++) {
+                noseve.drawRect(tablero[i][j].x, tablero[i][j].y, tablero[i][j].width, tablero[i][j].height);
+            }
+        }
         for (Pieza pieza : piezas) {
             pieza.paint(noseve, this);
         }
-
         g.drawImage(imagen, 0, 0, this);
     }
 

@@ -17,8 +17,8 @@ public class Pieza extends Rectangle {
         this.width = 60;
 
         Random r = new Random();
-        this.x = (int)(Math.random()*300 + 350);  
-        this.y = (int)(Math.random() * 450);  
+        this.x = (int) (Math.random() * 300 + 350);
+        this.y = (int) (Math.random() * 450);
         this.posicion = posicion;
         this.imagen = imagen;
     }
@@ -31,9 +31,18 @@ public class Pieza extends Rectangle {
         return colocada;
     }
 
+    public void setColocada(boolean value) {
+        this.colocada = value;
+    }
+
     public void setPosition(int newX, int newY) {
-        this.x = newX-30;
-        this.y = newY-30;
+        this.x = newX - 30;
+        this.y = newY - 30;
+    }
+
+    public void setTablero(int newX, int newY) {
+        this.x = newX;
+        this.y = newY;
     }
 
 }
