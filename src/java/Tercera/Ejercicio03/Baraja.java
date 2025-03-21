@@ -2,8 +2,10 @@ package Tercera.Ejercicio03;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Baraja {
+
     ArrayList<Carta> cartas;
 
     public Baraja(Image imagenes[]) {
@@ -11,10 +13,18 @@ public class Baraja {
 
         for (Image imagen : imagenes) {
             int valor = 0;
-            
-            cartas.add(new Carta((valor % 13) + 1, imagen)); 
+
+            cartas.add(new Carta((valor % 13) + 1, imagen));
             valor++;
-            System.out.println("hola");
         }
+        Collections.shuffle(cartas);
+
+    }
+
+    public Carta sacarCarta() {
+        Carta carta = cartas.get(0);
+        cartas.remove(0);
+        return carta;
+
     }
 }

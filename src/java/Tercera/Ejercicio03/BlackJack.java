@@ -1,12 +1,12 @@
 package Tercera.Ejercicio03;
 
 import java.applet.Applet;
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
-
 
 public class BlackJack extends Applet {
 
@@ -22,6 +22,13 @@ public class BlackJack extends Applet {
 
     Rectangle tablero[][];
     Baraja baraja;
+
+    Mano jugador;
+    Mano crupier;
+
+    Button pedir;
+    Button plantar;
+
     public void init() {
         imagen = this.createImage(700, 500);
         noseve = imagen.getGraphics();
@@ -34,16 +41,22 @@ public class BlackJack extends Applet {
 
             imagenes[i] = getImage(getCodeBase(), "Tercera/Ejercicio03/Cartas/" + num + "_of_" + nombre + ".png");
 
-            
-            
-            //System.out.println(num + "_of_" + nombre + ".png");
         }
-        
+
         baraja = new Baraja(imagenes);
-        
+        jugador = new Mano(100);
+        crupier = new Mano(300);
+
+        jugador.anadirCarta(baraja.sacarCarta());
+        jugador.anadirCarta(baraja.sacarCarta());
+        crupier.anadirCarta(baraja.sacarCarta());
+        crupier.anadirCarta(baraja.sacarCarta());
+
+        pedir = new Button();
+        plantar = new Button();
+
         this.setSize(700, 500);
 
-        
     }
 
     public boolean mouseDown(Event ev, int x, int y) {
@@ -58,9 +71,11 @@ public class BlackJack extends Applet {
     public void paint(Graphics g) {
         noseve.setColor(Color.BLACK);
         noseve.fillRect(0, 0, 700, 500);
-        noseve.drawImage(imagenes[5], 0, 0, 300,450, this);
         noseve.setColor(Color.GRAY);
-        
+
+        jugador.paint(noseve, this);
+        crupier.paint(noseve, this);
+
         g.drawImage(imagen, 0, 0, this);
 
     }
