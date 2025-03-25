@@ -11,12 +11,12 @@ public class Baraja {
     public Baraja(Image imagenes[]) {
         cartas = new ArrayList<Carta>();
 
-        for (Image imagen : imagenes) {
-            int valor = 0;
+        for (int i = 0; i < imagenes.length; i++) {
+            
+            cartas.add(new Carta((i % 13) + 1, imagenes[i]));
 
-            cartas.add(new Carta((valor % 13) + 1, imagen));
-            valor++;
         }
+
         Collections.shuffle(cartas);
 
     }
