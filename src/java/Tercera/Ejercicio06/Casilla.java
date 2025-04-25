@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Tercera.Ejercicio06;
 
 import java.awt.Color;
@@ -11,27 +16,28 @@ public class Casilla extends Rectangle {
     int valor;
     Color color;
 
-    public Casilla(int x, int y, int valor, Color color) {
-        this.x = x;
-        this.y = y;
-        this.width = DIM;
-        this.height = DIM;
+    public int getValor() {
+        return valor;
+    }
 
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+    
+    
+    
+    public Casilla(int x, int y, int valor, Color color) {
+        super(x, y, DIM, DIM);
         this.valor = valor;
         this.color = color;
     }
 
-public void paint(Graphics g) {
-    g.setColor(color);
-    g.fillRect(x, y, width, height);
-    g.setColor(Color.white);
-    g.drawRect(x, y, width, height);
-    g.setColor(Color.white);
-
-    g.setFont(new Font("Arial", Font.BOLD, 25)); 
-
-    g.drawString("" + valor, x + 16, y + 40);
-}
-
-
+    public void paint(Graphics g) {
+        g.setColor(color);
+        g.fillRect(x, y, width, height);
+        g.setFont(new Font("TimesRoman", Font.BOLD, 24));
+        g.setColor(Color.WHITE);
+        g.drawRect(x, y, width, height);
+        g.drawString((valor + ""), x + ((DIM / 2)), y + ((DIM / 2)));
+    }
 }
