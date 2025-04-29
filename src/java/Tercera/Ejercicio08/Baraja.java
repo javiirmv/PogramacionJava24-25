@@ -2,6 +2,7 @@ package Tercera.Ejercicio08;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Baraja {
 
@@ -12,18 +13,19 @@ public class Baraja {
         cartas = new ArrayList<Carta>();
         for (int i = 0; i < imagenes.length; i++) {
             int color;
-            if (i == 1 || i == 2){
+            if (i / Solitario.CPP == 1 || i / Solitario.CPP == 2) {
                 color = 1;
             } else {
                 color = 2;
             }
 
-            cartas.add(new Carta(imagenes[i], i % 13, color, i / 13));
-
+            cartas.add(new Carta(imagenes[i], (i % Solitario.CPP) + 1, color, i / Solitario.CPP));
         }
+        Collections.shuffle(cartas);
+
     }
-    
-    public Carta sacarCarta(){
+
+    public Carta sacarCarta() {
         return cartas.get(0);
     }
 

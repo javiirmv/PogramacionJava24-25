@@ -33,7 +33,7 @@ public class Solitario extends Applet {
 
         }
         baraja = new Baraja(imagenes);
-        System.out.println(baraja.sacarCarta().getColor());
+        System.out.println(baraja.sacarCarta().getValor());
         reverso = getImage(getCodeBase(), "Tercera/Ejercicio08/Cartas/reverso.png");
 
         this.setSize(700, 800);
