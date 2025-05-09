@@ -6,7 +6,15 @@ import java.util.Collections;
 
 public class Baraja {
 
-    ArrayList<Carta> cartas;
+    private ArrayList<Carta> cartas;
+
+    public ArrayList<Carta> getCartas() {
+        return cartas;
+    }
+
+    public void setCartas(ArrayList<Carta> cartas) {
+        this.cartas = cartas;
+    }
     Image reves;
 
     public Baraja(Image[] imagenes) {
@@ -26,7 +34,7 @@ public class Baraja {
     }
 
     public Carta sacarCarta() {
-        return cartas.get(0);
+        return cartas.remove(0);
     }
 
 }
